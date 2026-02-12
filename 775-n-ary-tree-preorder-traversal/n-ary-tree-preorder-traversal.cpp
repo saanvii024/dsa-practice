@@ -23,7 +23,7 @@ class Solution {
 public:
     vector<int> preorder(Node* root) {
         vector<int> ans;
-        if(!root) return ans; //placing ans before this is imp, and returning ans if its null vvimp
+        if(root==NULL) return ans; //placing ans before this is imp, and returning ans if its null vvimp
         stack<Node*> st;
         
         st.push(root);
@@ -36,9 +36,7 @@ public:
                 st.push(curr->children[i]);
             }
         }
-        return ans;
-
-        
+        return ans;    
     }
 };
 
