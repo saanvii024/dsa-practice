@@ -1,10 +1,18 @@
 class Solution {
 public:
     int distributeCandies(vector<int>& candyType) {
-        unordered_set<int> st;
-        for (int x : candyType) {
-            st.insert(x);
+        int m = candyType.size();
+
+        sort(candyType.begin(),candyType.end());
+        candyType.erase(unique(candyType.begin(), candyType.end()), candyType.end());
+        int n = candyType.size();
+        if(n > m/2){
+            return m/2;
         }
-        return min((int)candyType.size() / 2, (int)st.size());
+        
+
+        return n;
+
+        
     }
 };
