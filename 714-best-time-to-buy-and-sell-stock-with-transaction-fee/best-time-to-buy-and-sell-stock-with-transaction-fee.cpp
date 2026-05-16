@@ -3,7 +3,7 @@ public:
     int maxProfit(vector<int>& prices, int fee) {
         int n = prices.size();
         //second [] is for if we have stock or no, 0 if no stock hold, 1 if we have stock
-        vector<vector<int>> dp(n+1, vector<int> (2));
+        vector<vector<int>> dp(n, vector<int> (2));
         dp[0][0] =  0;
         dp[0][1] = -prices[0]; //since we bought it, negative money
         for(int i = 1; i < n; i++){
