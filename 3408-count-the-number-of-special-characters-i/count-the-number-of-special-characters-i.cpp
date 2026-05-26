@@ -7,14 +7,10 @@ public:
         // store unique characters
         for(char c : word){
 
-            if(mp.count(c) == 0){
-
-                mp[c] = c;
-            }
+            mp[c] = 1;
+            
         }
-
         int ans = 0;
-
         // check lowercase letters only
         for(auto it : mp){
 
@@ -30,7 +26,6 @@ public:
                 }
             }
         }
-
         return ans;
     }
 };
