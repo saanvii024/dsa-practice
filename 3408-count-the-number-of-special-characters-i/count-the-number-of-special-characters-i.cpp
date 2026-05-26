@@ -1,31 +1,18 @@
 class Solution {
 public:
     int numberOfSpecialChars(string word) {
+        
+        unordered_set<char> st(word.begin(), word.end());
 
-        unordered_map<char, int> mp;
+        int count = 0;
 
-        // store unique characters
-        for(char c : word){
+        for(char ch = 'a'; ch <= 'z'; ch++) {
 
-            mp[c] = 1;
-            
-        }
-        int ans = 0;
-        // check lowercase letters only
-        for(auto it : mp){
-
-            char c = it.first;
-
-            // if lowercase
-            if(c >= 'a' && c <= 'z'){
-
-                // check if uppercase exists
-                if(mp.count(c - 32)){
-
-                    ans++;
-                }
+            if(st.count(ch) && st.count(ch - 'a' + 'A')) {
+                count++;
             }
         }
-        return ans;
+
+        return count;
     }
 };
