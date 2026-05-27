@@ -1,4 +1,4 @@
-class Solution {
+/* class Solution {
 public:
     int numberOfSpecialChars(string word) {
 
@@ -34,6 +34,36 @@ public:
             }
         }
 
+        return count;
+    }
+};*/
+
+class Solution {
+public:
+    int numberOfSpecialChars(string word) {
+        
+        vector<int> m1(26, -1);
+        vector<int> m2(26, -1);
+
+        for(int i = 0; i < word.size(); i++) {
+            if(islower(word[i])) {
+                m1[word[i] - 'a'] = i;
+            } else {
+                if(m2[word[i] - 'A'] == -1) {
+                    m2[word[i] - 'A'] = i;
+                }
+            }
+        }
+        int count = 0;
+        for(int i = 0; i < 26; i++) {
+
+            if(m1[i] != -1 &&
+               m2[i] != -1 &&
+               m1[i] < m2[i]) {
+
+                count++;
+            }
+        }
         return count;
     }
 };
