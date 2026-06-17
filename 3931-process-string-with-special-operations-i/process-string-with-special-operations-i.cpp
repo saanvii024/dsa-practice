@@ -1,4 +1,3 @@
-//translated using AI
 class Solution {
 public:
     string processStr(string s) {
